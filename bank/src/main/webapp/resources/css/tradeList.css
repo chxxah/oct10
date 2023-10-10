@@ -1,0 +1,85 @@
+@charset "UTF-8";
+body{
+	font-family: 'Gothic A1', sans-serif;
+	
+	margin : 0 auto;
+}
+.full{
+	width : 60%;
+	margin : 0 auto;
+}
+.head{
+	background-color: #FFF176;
+	width : 100%;
+	height:100px;
+	text-align: center;
+	
+}
+
+
+.row{
+	
+	margin-top: 40px;
+
+	margin-bottom: 40px;
+	
+	
+}
+
+.tt{
+	text-align: center;
+	
+}
+
+.money{
+	text-align: right;
+	
+}
+.time{
+	float:left;
+	width:30%;
+	line-height: 60px;
+	text-align: left;
+}
+.name{
+	
+}
+.table{
+	margin-top: 40px;
+	width:100%;
+
+
+}
+table{
+	width:100%
+}
+tr{
+	text-align: center;
+	height : 70px;
+}
+ur{
+	text-align: center;
+}
+.new{
+	margin: 10px;
+	width: 100%;
+	height: 70px;
+	
+}
+.m1{
+	color: red;
+}
+.m2{
+	color: blue;
+}
+.tag{
+	float: left;
+	width:40%;
+	line-height: 60px;
+}
+.mon{
+	float:right;
+	width:30%;
+	line-height: 60px;
+	text-align: right;
+}

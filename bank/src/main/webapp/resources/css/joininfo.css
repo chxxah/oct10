@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+
+body {
+	text-align: center;
+	
+}
+
+.blank {
+	height: 50px;
+}
+
+.title {
+}
+.kakao{
+	font-family: 'Bagel Fat One', cursive;
+	font-size: 4rem;
+}
+.content {
+	border: 1px solid #BDBDBD;
+	border-radius: 30px;
+	margin: 0 auto;
+	width: 430px;
+	height: 600px;
+	text-align: center;
+}
+.k-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 15px 30px;
+	border-radius: 15px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: bold;
+	transition: 0.25s;
+	background-color: #fce205;
+	color: #6e6e6e;
+	width: 300px;
+	text-align: center;
+}
+.k-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.singup{
+	margin: 0 auto;
+	position: relative;
+	top: 500px;
+	
+}
+.blank {
+	height: 70px;
+}

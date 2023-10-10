@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+body{
+	font-family: 'Gothic A1', sans-serif;
+}
+.tradeList{
+	width: 800px;
+	height: 800px;
+	margin: 0 auto;
+}
+table{
+	border: 1px solid #BDBDBD;
+	border-collapse: collapse;
+	margin: 10px 0px;
+}
+.t1{
+	border: 1px solid #BDBDBD;
+	width: 200px;
+	height: 70px;
+	padding: 10px;
+}
+.t2{
+	border: 1px solid #BDBDBD;
+	width: 400px;
+	height: 70px;
+	padding: 10px;
+}
+input{
+	margin: 5px;
+}
+button{
+	background-color: white;
+	border-radius: 10px;
+	border: 1px solid #616161;
+	padding: 5px;
+	font-family: 'Gothic A1', sans-serif;
+}
+input{
+	font-family: 'Gothic A1', sans-serif;
+	border-radius: 5px;
+	height: 20px;
+}

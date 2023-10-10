@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="trade">
+	<select id="totalCount" resultType="Integer">
+		SELECT COUNT(tno) FROM trade
+	</select>
+	<select id="tradeList" parameterType="Map" resultType="Map">
+		SELECT
+		t1.tno AS tno,
+		t1.ttime AS ttime,
+		t1.toaccount AS toaccount,
+		t1.tipaccount AS tipaccount,
+		FORMAT(m1.mmoney, '#,#') as mmoney,
+		m1.mid AS ti,
+		m1.mname AS tname,
+		m2.mid AS tipid,
+		m2.mname AS tipname,
+		FORMAT(t1.tmoney, '#,#')AS tmoney
+		FROM trade t1 JOIN members m1 ON t1.tono = m1.mno
+		JOIN members m2 ON t1.tipno = m2.mno
+		WHERE m1.mid = "${mid}" OR m2.mid = "${mid}"
+		ORDER BY tno DESC
+		LIMIT #{firstRecordIndex }, #{recordCountPerPage };
+	</select>
+	
+	<select id="tradeMem" parameterType="Map" resultType="Map">
+		SELECT maccount,FORMAT(mmoney, '#,#') as mmoney FROM members WHERE mid = "${mid}" 
+	</select>
+
+	<insert id="tradeInsert" parameterType="tradeDTO">
+	INSERT INTO trade (toaccount, tipaccount, tono, tipno, tmoney)
+	VALUES (#{toaccount},#{tipaccount}, (SELECT mno FROM members WHERE maccount = #{toaccount}), (SELECT mno FROM members WHERE maccount = #{tipaccount}), #{tmoney});
+	</insert>
+
+	<update id="trade" parameterType="tradeDTO">
+		UPDATE members SET mmoney =
+		CASE
+		WHEN mno = (SELECT mno FROM members WHERE maccount = #{toaccount}) THEN mmoney - #{tmoney}
+		WHEN mno = (SELECT mno FROM members WHERE maccount = #{tipaccount}) THEN mmoney + #{tmoney}
+		ELSE mmoney END WHERE mno IN ((SELECT mno FROM members WHERE maccount = #{toaccount}), (SELECT mno FROM members WHERE maccount = #{tipaccount}));
+	</update>
+	
+	<select id="checkaccount" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM members WHERE maccount = #{maccount}
+	</select>
+	
+	<select id="mapw" parameterType="Map" resultType="Integer">
+		SELECT COUNT(*) FROM members WHERE mapw = #{mapw} AND mid = #{mid}
+	</select>
+
+</mapper>
